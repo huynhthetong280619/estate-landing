@@ -45,7 +45,8 @@ body.boxed .is-sticky-section {
 }
 
 #logo img {
-    max-height: 100px
+    max-height: 100px;
+    padding-bottom: 0.5rem;
 }
 
 #logo {
@@ -1298,6 +1299,14 @@ section.bg-image{display:none;}
     left: 0;
     z-index: 99998
 }
+
+.hotline-zalo-ring-wrap {
+    position: fixed;
+    bottom: 14px;
+    left: 252px;
+    z-index: 99998;
+}
+
 .hotline-phone-ring {
     position: relative;
     visibility: visible;
@@ -1913,6 +1922,7 @@ a.view-video.brochure:after {
 .home .header-wrapper .header-main {
     /* display: none; */
     box-shadow: 2px 2px 2px #cd9a00;
+    background: #032540;
 }
 
 
@@ -3775,7 +3785,7 @@ display: none;
 .popup1{
 opacity:1;
 position: fixed;
-top: 50%;
+top: 42%;
 left: 50%;
 height: 100%;
 width: 100%;

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import '../public/css/style.css'
 import '../public/css/flatsome.css'
 import LOGO from '../images/banner-logo-map/logo.png'
@@ -17,6 +18,7 @@ import PHANLOBINHSON from '../images/banner-logo-map/Phan-lo-Binh-Son.jpg'
 import TIENICHLIENKET from '../images/banner-logo-map/Tien-ich-lien-ket-Century-City.png'
 import TONGQUAN1 from '../images/banner-logo-map/tong-quan-01.jpg'
 import PHONE from '../images/banner-logo-map/phone_icon.png'
+import ZALO from '../images/banner-logo-map/zalo.png'
 import POPUP from '../images/banner-logo-map/popup.jpg'
 import CROSS from '../images/banner-logo-map/cross.png'
 
@@ -66,7 +68,7 @@ import BANGGIACENTURYCITY06144945 from '../images/chinh-sach/06144945-bang-gia-c
 import GIASHOPHOUSECENTURYCITY25214402 from '../images/chinh-sach/25214402-gia-shophouse-century-city.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobeAfrica } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAfrica, faTemperatureLow } from '@fortawesome/free-solid-svg-icons'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { faTree } from '@fortawesome/free-solid-svg-icons'
 import { faIndustry } from '@fortawesome/free-solid-svg-icons'
@@ -74,11 +76,71 @@ import { faCommentSlash } from '@fortawesome/free-solid-svg-icons'
 import { faRoad } from '@fortawesome/free-solid-svg-icons'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { URL_API } from '../constants/API'
 
 function LandingPage() {
+
+    const [isHidden, setIsHidden] = useState(true)
+
+    useEffect(() => {
+        window.addEventListener('scroll', function (event) {
+            const stickDestination = document.getElementById('stick-flag-action')
+            if (this.scrollY > 100) {
+                stickDestination.classList.add('stuck')
+            } else {
+                stickDestination.classList.remove('stuck')
+            }
+        })
+
+        openModal();
+    }, [])
+
+    const [data, setData] = useState({
+        fullname: "", phone: '', message: '', date: new Date()
+    })
+
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+
+        if (!data.fullname || !data.phone || !data.message) {
+            return
+        }
+
+        try {
+            const response = await fetch(URL_API, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify([[data.fullname, data.phone, data.message, data.date.toLocaleString()]])
+            })
+
+
+            const res = await response.json()
+
+            setData({ ...data, fullname: "", phone: '', message: '', date: new Date() })
+        } catch (error) {
+
+        }
+    }
+
+
+    const openModal = () => {
+        setIsHidden(true)
+    }
+
+    const closeModal = () => {
+        setIsHidden(false)
+    }
+
     return (
         <body
-            class='
+            className='
             home
             page-template page-template-page-blank page-template-page-blank-php page page-id-9
             ot-vertical-menu
@@ -86,12 +148,12 @@ function LandingPage() {
             lazy-icons
             nav-dropdown-has-arrow
         '>
-            <a class='skip-link screen-reader-text' href='#main'>
+            <a className='skip-link screen-reader-text' href='#main'>
                 Skip to content
             </a>
             <div id='wrapper'>
-                <header id='header' className='header has-sticky sticky-jump'>
-                    <div className='header-wrapper'>
+                <header id='header' className='header has-sticky sticky-jump' id="stick-flag-action">
+                    <div className='header-wrapper' id="header-sticky-id">
                         <div id='masthead' className='header-main show-logo-center nav-dark'>
                             <div className='header-inner flex-row container logo-center' role='navigation'>
                                 <div id='logo' className='flex-col logo'>
@@ -192,12 +254,12 @@ function LandingPage() {
                                 <p>
                                     <strong>
                                         Chào mừng Quý khách&nbsp;đến Website chính thức phân phối dự án Century City của Kim Oanh Group. Dưới đây là Tất Tần Tật
-                                        thông tin mới về TIẾN ĐỘ thi công, GIÁ BÁN và CHÍNH SÁCH ƯU ĐÃI tháng 5/2021.
+                                        thông tin mới về TIẾN ĐỘ thi công, GIÁ BÁN và CHÍNH SÁCH ƯU ĐÃI tháng 6/2021.
                                     </strong>
                                 </p>
                                 <p>
                                     <span style={{ color: '#e67e22' }}>
-                                        <b>[VIDEO] Tiến độ xây dựng dự án Cenyury City (Tháng 5/2021)</b>
+                                        <b>[VIDEO] Tiến độ xây dựng dự án Cenyury City (Tháng 6/2021)</b>
                                     </span>
                                 </p>
                                 <div data-oembed-url='https://youtu.be/2pzpT_FYF4c'>
@@ -222,8 +284,8 @@ function LandingPage() {
                                         <span style={{ fontSize: '20px' }}>
                                             <strong>
                                                 <u>
-                                                    <a href='tel:0932 744445'>
-                                                        <span style={{ color: '#e67e22' }}>0932 744445</span>
+                                                    <a href='tel:0907 839 986'>
+                                                        <span style={{ color: '#e67e22' }}>0907 839 986</span>
                                                     </a>
                                                 </u>
                                             </strong>
@@ -235,15 +297,9 @@ function LandingPage() {
                         </div>
                         <section className='section dangkytop' id='section_84277082'>
                             <div className='section-content relative'>
-                                <div role='form' className='wpcf7' id='wpcf7-f592-o2' lang='vi' dir='ltr' style={{ padding: '0 15px' }}>
+                                <div className='wpcf7' id='wpcf7-f592-o2' lang='vi' dir='ltr' style={{ padding: '0 15px' }}>
                                     <div className='screen-reader-response' />
-                                    <form style={{ display: 'flex' }} method='post' className='wpcf7-form form-send' noValidate='novalidate' id='form1'>
-                                        <input
-                                            name='__RequestVerificationToken'
-                                            type='hidden'
-                                            defaultValue='MPjE5Xe0K9Ee4XfioDKq0Lg4CXz7cHGGfErvcz4owUHqdXB2iWvyyuCJQTY4_BayvgN3gFwDRvbnmI9X2suxMH2IS3VWtkj17RtnBA9aLV01'
-                                        />
-                                        <input type='hidden' name='key' defaultValue='centcvn' />
+                                    <div style={{ display: 'flex' }} className='wpcf7-form form-send'>
                                         <div className='row formdangky'>
                                             <div className='col'>
                                                 <div className='col-inner'>
@@ -251,11 +307,12 @@ function LandingPage() {
                                                         <input
                                                             type='text'
                                                             name='fullname'
-                                                            defaultValue
                                                             size={40}
                                                             className='wpcf7-form-control wpcf7-text'
                                                             aria-invalid='false'
                                                             placeholder='Họ tên'
+                                                            onChange={handleChange}
+                                                            value={data.fullname}
                                                         />
                                                     </span>
                                                 </div>
@@ -267,11 +324,12 @@ function LandingPage() {
                                                         <input
                                                             type='tel'
                                                             name='phone'
-                                                            defaultValue
                                                             size={40}
                                                             className='wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel'
                                                             aria-invalid='false'
                                                             placeholder='Số điện thoại'
+                                                            onChange={handleChange}
+                                                            value={data.phone}
                                                         />
                                                     </span>
                                                 </div>
@@ -283,11 +341,12 @@ function LandingPage() {
                                                         <input
                                                             type='text'
                                                             name='message'
-                                                            defaultValue
                                                             size={255}
                                                             className='wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email'
                                                             aria-invalid='false'
                                                             placeholder='Ghi chú...'
+                                                            onChange={handleChange}
+                                                            value={data.message}
                                                         />
                                                     </span>
                                                 </div>
@@ -295,14 +354,14 @@ function LandingPage() {
                                             </div>
                                             <div className='col colbtn'>
                                                 <div className='col-inner'>
-                                                    <input type='submit' defaultValue='Đăng ký' className='wpcf7-form-control wpcf7-submit' />
+                                                    <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>Đăng ký</button>
                                                 </div>
                                                 <p />
                                             </div>
                                         </div>
                                         <div className='clear' />
                                         <div className='form-alert' style={{ display: 'none' }} />
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -335,15 +394,18 @@ function LandingPage() {
                                                         <span style={{ fontSize: '20px' }}>
                                                             <strong>
                                                                 <u>
-                                                                    <a href='tel:0932 744445'>
-                                                                        <span style={{ color: '#e67e22' }}>0932 744445</span>
+                                                                    <a href='tel:0907 839 986'>
+                                                                        <span style={{ color: '#e67e22' }}>0907 839 986</span>
                                                                     </a>
                                                                 </u>
                                                             </strong>
                                                         </span>
                                                         &nbsp;(Phòng kinh doanh Chủ Đầu Tư).&nbsp;Hỗ trợ miễn phí xe đưa đón quý khách tham quan dự án 24/7.
                                                     </p>
-                                                    <a className='button primary bounceInUp eds-on-scroll btn-animate popup' href='#'>
+                                                    <a className='button primary bounceInUp eds-on-scroll btn-animate popup' href='#' onClick={e => {
+                                                        e.preventDefault()
+                                                        openModal();
+                                                    }}>
                                                         <span>ĐĂNG KÝ NGAY</span>
                                                     </a>
                                                 </div>
@@ -376,8 +438,8 @@ function LandingPage() {
                                     <span style={{ fontSize: '20px' }}>
                                         <strong>
                                             <u>
-                                                <a href='tel:0932 744445'>
-                                                    <span style={{ color: '#e67e22' }}>0932 744445</span>
+                                                <a href='tel:0907 839 986'>
+                                                    <span style={{ color: '#e67e22' }}>0907 839 986</span>
                                                 </a>
                                             </u>
                                         </strong>
@@ -633,39 +695,39 @@ function LandingPage() {
                                                 <div className='col__icon_t2'>Quy mô dự án</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faHome} />
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faHome} />
                                                 <div className='col__icon_t1'>2.150</div>
                                                 <div className='col__icon_t2'>Sản phẩm</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faTree} />
-                                              
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faTree} />
+
                                                 <div className='col__icon_t1'>30.000 m²</div>
                                                 <div className='col__icon_t2'>Mảng xanh</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faIndustry} />
-                                               
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faIndustry} />
+
                                                 <div className='col__icon_t1'>12.450 m²</div>
                                                 <div className='col__icon_t2'>Trung tâm thương mại</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faIndustry} />
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faIndustry} />
                                                 <div className='col__icon_t1'>27.390 m²</div>
                                                 <div className='col__icon_t2'>Trường học</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faRoad} />
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faRoad} />
                                                 <div className='col__icon_t1'>600 m</div>
                                                 <div className='col__icon_t2'>Mặt tiền đường chính</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faLink} />
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faLink} />
                                                 <div className='col__icon_t1'>50+</div>
                                                 <div className='col__icon_t2'>Tiện ích nội khu</div>
                                             </div>
                                             <div className='col__icon'>
-                                            <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faComment} />
+                                                <FontAwesomeIcon style={{ transition: 'all 500ms', fontSize: '54px' }} icon={faComment} />
                                                 <div className='col__icon_t1'>50%</div>
                                                 <div className='col__icon_t2'>Mật độ xây dựng</div>
                                             </div>
@@ -1340,10 +1402,10 @@ function LandingPage() {
                                     <div className='medium-12'>
                                         <div style={{ textAlign: 'center', fontSize: '18px' }}>
                                             <h3>
-                                                <span style={{ color: '#e67e22' }}>Tiến độ thi công dự án Century City&nbsp; (Tháng 5/2021)</span>
+                                                <span style={{ color: '#e67e22' }}>Tiến độ thi công dự án Century City&nbsp; (Tháng 6/2021)</span>
                                             </h3>
                                             <p>
-                                                Tính đến đầu tháng 5/2021,&nbsp;Với tiến độ thi công “thần tốc”, Century City nổi bật và liên tục khẳng định sức
+                                                Tính đến đầu tháng 6/2021,&nbsp;Với tiến độ thi công “thần tốc”, Century City nổi bật và liên tục khẳng định sức
                                                 nóng tại Long Thành. Qua 10 tháng triển khai, hiện hạ tầng dự án đã hoàn thiện hơn 80% gồm những hạng mục:
                                             </p>
                                             <p>
@@ -1783,15 +1845,9 @@ function LandingPage() {
                                 gian nhanh nhất
                             </div>
                             <img src={CONTACTNOW} style={{ margin: '10px auto', display: 'block' }} />
-                            <div role='form' className='wpcf7' id='wpcf7-f592-o2' lang='vi' dir='ltr' style={{ padding: '0 15px' }}>
+                            <div className='wpcf7' id='wpcf7-f592-o2' lang='vi' dir='ltr' style={{ padding: '0 15px' }}>
                                 <div className='screen-reader-response' />
-                                <form className='wpcf7-form form-send' noValidate='novalidate' id='form1'>
-                                    {/* <input
-                                        name='__RequestVerificationToken'
-                                        type='hidden'
-                                        defaultValue='4hnE_vHnDE2LNlIlDw4aUiH--gO6wLvf4GgePPO0Xmi7x8osis3wsU8oX1EkgvpB6lRxSL07cF8tcE3Q-Na8uzxQkkLUZ3eXPsplggIaRq41'
-                                    /> */}
-                                    {/* <input type='hidden' name='key' defaultValue='centcvn' /> */}
+                                <div className='wpcf7-form form-send'>
                                     <div className='row dangkythongtin'>
                                         <div className='col medium-12 small-12 large-6'>
                                             <div className='col-inner'>
@@ -1803,6 +1859,9 @@ function LandingPage() {
                                                         // className='wpcf7-form-control wpcf7-text'
                                                         aria-invalid='false'
                                                         placeholder='Họ tên'
+                                                        onChange={handleChange}
+                                                        value={data.fullname}
+
                                                     />
                                                 </span>
                                             </div>
@@ -1818,6 +1877,8 @@ function LandingPage() {
                                                         className='wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-tel'
                                                         aria-invalid='false'
                                                         placeholder='Số điện thoại'
+                                                        onChange={handleChange}
+                                                        value={data.phone}
                                                     />
                                                 </span>
                                             </div>
@@ -1833,6 +1894,8 @@ function LandingPage() {
                                                         className='wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email'
                                                         aria-invalid='false'
                                                         placeholder='Ghi chú liên hệ...'
+                                                        onChange={handleChange}
+                                                        value={data.message}
                                                     />
                                                 </span>
                                             </div>
@@ -1840,14 +1903,14 @@ function LandingPage() {
                                         </div>
                                         <div className='col medium-12 small-12 large-12 formgiua'>
                                             <div className='col-inner'>
-                                                <input type='submit' defaultValue='Đăng ký' className='wpcf7-form-control wpcf7-submit' />
+                                                <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>Đăng ký</button>
                                             </div>
                                             <p />
                                         </div>
                                     </div>
                                     <div className='clear' />
                                     <div className='form-alert' style={{ display: 'none' }} />
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -1877,13 +1940,13 @@ function LandingPage() {
                                         <div className='box pdtop' style={{ marginBottom: '20px' }}>
                                             <p className='contact-title'>Thông tin liên hệ</p>
                                             <h5>CÔNG TY CỔ PHẦN TẬP ĐOÀN ĐỊA ỐC KIM OANH</h5>
-                                            <div className='box-content'>Địa chỉ: 492/32 xa lộ Hà Nội, KP1, P. Phước Long A, Quận 9, TPHCM</div>
+                                            <div className='box-content'>Địa chỉ: 355 Điện Biên Phủ, Phường 15, Quận Bình Thạnh Thành Phố Hồ Chí Minh</div>
                                         </div>
                                         <div className='box'>
                                             <p style={{ marginBottom: '0px' }}>
                                                 <i className='fa fa-phone' /> Hotline:{' '}
-                                                <a href='tel:0932 744445'>
-                                                    <b>0932 744445</b>
+                                                <a href='tel:0907 839 986'>
+                                                    <b>0907 839 986</b>
                                                 </a>
                                             </p>
                                             <p>
@@ -1911,74 +1974,79 @@ function LandingPage() {
                 </footer>
             </div>
 
-            <div id='main-menu' class='mobile-sidebar no-scrollbar mfp-hide'>
-                <div class='sidebar-menu no-scrollbar'>
-                    <ul class='nav nav-sidebar nav-vertical nav-uppercase'>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#gioithieu' class='nav-top-link'>
+            <div id='main-menu' className='mobile-sidebar no-scrollbar mfp-hide'>
+                <div className='sidebar-menu no-scrollbar'>
+                    <ul className='nav nav-sidebar nav-vertical nav-uppercase'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#gioithieu' className='nav-top-link'>
                                 GIỚI THIỆU
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#vitri' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#vitri' className='nav-top-link'>
                                 VỊ TRÍ
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#tienich' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#tienich' className='nav-top-link'>
                                 TIỆN ÍCH
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#' className='nav-top-link'>
                                 SẢN PHẨM
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#matbang' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#matbang' className='nav-top-link'>
                                 MẶT BẰNG
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#tiendo' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#tiendo' className='nav-top-link'>
                                 TIẾN ĐỘ
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#banggia' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#banggia' className='nav-top-link'>
                                 BẢNG GIÁ
                             </a>
                         </li>
-                        <li class='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#lhmh' class='nav-top-link'>
+                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
+                            <a href='#lhmh' className='nav-top-link'>
                                 LIÊN HỆ
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class='hotline-phone-ring-wrap'>
-                <div class='hotline-phone-ring'>
-                    <div class='hotline-phone-ring-img-circle'>
-                        <a href='tel:0932 744445' class='pps-btn-img'>
+            <div className='hotline-phone-ring-wrap'>
+                <div className='hotline-phone-ring'>
+                    <div className='hotline-phone-ring-img-circle'>
+                        <a href='tel:0907 839 986' className='pps-btn-img'>
                             {' '}
                             <img src={PHONE} alt='Hotline' width='50' />{' '}
                         </a>
                     </div>
                 </div>
-                <div class='hotline-bar'>
-                    <a href='tel:0932 744445'>
+                <div className='hotline-bar'>
+                    <a href='tel:0907 839 986'>
                         {' '}
-                        <span class='text-hotline'>0932 744445</span>{' '}
+                        <span className='text-hotline'>0907 839 986</span>{' '}
                     </a>
                 </div>
             </div>
+            <div className='hotline-zalo-ring-wrap'>
+                <a href='tel:0907 839 986'>
+                    <img src={ZALO} alt='Hotline' width='50' style={{ borderRadius: '50%', cursor: 'pointer' }} />
+                </a>
+            </div>
 
-            <div id='modal1' className=''>
+            {isHidden && <div id='modal1' className="popup1 md-effect md-show" >
                 <div className='form-popup' action='#' id='popupregister' >
                     <div className='form-popup-content'>
-                        <form action='#' method='post' className='md-form'>
-                            <img src={CROSS} className='close' id='md-close' title='Đóng' />
+                        <div className='md-form'>
+                            <img src={CROSS} className='close' id='md-close' title='Đóng' onClick={closeModal} />
                             <div className='form-inner'>
                                 <div className='form-text'>
                                     <h3 style={{ textAlign: 'center' }}>
@@ -2007,7 +2075,7 @@ function LandingPage() {
                                         ☎️&nbsp;&nbsp;
                                         <span style={{ fontSize: '20px' }}>
                                             <strong>
-                                                <a href='tel:0932 744445'>0932 744445</a>
+                                                <a href='tel:0907 839 986'>0907 839 986</a>
                                             </strong>
                                         </span>
                                     </p>
@@ -2015,21 +2083,21 @@ function LandingPage() {
                                         type='text'
                                         name='fullname'
                                         placeholder='Họ tên (*)'
-                                        required
-                                        oninvalid="this.setCustomValidity('Vui lòng nhập họ tên')"
-                                        oninput="this.setCustomValidity('')"
+                                        onChange={handleChange}
+                                        value={data.fullname}
+
                                     />
                                     <input
                                         type='text'
                                         name='phone'
                                         placeholder='Số điện thoại (*)'
-                                        defaultValue
-                                        required
-                                        oninvalid="this.setCustomValidity('Vui lòng nhập đúng số điện thoại')"
-                                        oninput="this.setCustomValidity('')"
+                                        onChange={handleChange}
+                                        value={data.phone}
+
                                     />
-                                    <textarea type='text' name='message' placeholder='Ghi chú...' rows={4} autoComplete='off' value defaultValue={''} />
-                                    <button type='submit' id='md-submit'>
+                                    <textarea type='text' name='message' placeholder='Ghi chú...' rows={4} autoComplete='off' value defaultValue={''} onChange={handleChange} value={data.message}
+                                    />
+                                    <button onClick={handleChange}>
                                         Gửi thông tin <i className='fa fa-paper-plane' />
                                     </button>
                                     <div id='loading' style={{ display: 'none' }}>
@@ -2047,12 +2115,13 @@ function LandingPage() {
                             </div>
                             <div className='clear' />
                             {/* <div className='form-alert' style={{ display: 'none' }} /> */}
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            }
 
-            {/* <div class='md-overlay'></div> */}
+            {/* <div className='md-overlay'></div> */}
         </body>
     )
 }

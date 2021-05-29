@@ -1,0 +1,1 @@
+export const URL_API = 'https://v1.nocodeapi.com/anhnguoingheo/google_sheets/nBuAMJpBFtRwemST?tabId=Collection'
