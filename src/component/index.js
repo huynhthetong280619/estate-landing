@@ -2097,7 +2097,7 @@ function LandingPage() {
                                     />
                                     <textarea type='text' name='message' placeholder='Ghi chú...' rows={4} autoComplete='off' value defaultValue={''} onChange={handleChange} value={data.message}
                                     />
-                                    <button onClick={handleChange}>
+                                    <button onClick={handleSubmit}>
                                         Gửi thông tin <i className='fa fa-paper-plane' />
                                     </button>
                                     <div id='loading' style={{ display: 'none' }}>
