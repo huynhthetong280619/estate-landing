@@ -92,7 +92,9 @@ function LandingPage() {
             }
         })
 
-        openModal();
+        setTimeout(() => {
+            openModal();
+        }, 10000)
     }, [])
 
     const [data, setData] = useState({
