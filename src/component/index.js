@@ -2032,14 +2032,14 @@ function LandingPage() {
                     </div>
                 </div>
                 <div className='hotline-bar'>
-                    <a href='https://zalo.me/andiaockimoanh'>
+                    <a href='tel:0907 839 986'>
                         {' '}
                         <span className='text-hotline'>0907 839 986</span>{' '}
                     </a>
                 </div>
             </div>
             <div className='hotline-zalo-ring-wrap'>
-                <a href='tel:0907 839 986'>
+                <a href='https://zalo.me/andiaockimoanh'>
                     <img src={ZALO} alt='Hotline' width='50' style={{ borderRadius: '50%', cursor: 'pointer' }} />
                 </a>
             </div>
