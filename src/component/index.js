@@ -2025,12 +2025,12 @@ function LandingPage() {
                     <div className='hotline-phone-ring-img-circle'>
                         <a href='tel:0907 839 986' className='pps-btn-img'>
                             {' '}
-                            <img src={PHONE} alt='Hotline' width='50' />{' '}
+                            <img src={PHONE} alt='Hotline' width='50'/>{' '}
                         </a>
                     </div>
                 </div>
                 <div className='hotline-bar'>
-                    <a href='tel:0907 839 986'>
+                    <a href='https://zalo.me/andiaockimoanh'>
                         {' '}
                         <span className='text-hotline'>0907 839 986</span>{' '}
                     </a>
