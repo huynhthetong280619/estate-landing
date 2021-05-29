@@ -422,7 +422,7 @@ function LandingPage() {
                             <div className='container'>
                                 <h2 style={{ textAlign: 'center' }}>BẢNG GIÁ MỚI NHẤT</h2>
                                 <p style={{ textAlign: 'center' }}>
-                                    Tải ngay bảng giá mới nhất 5/2021 của&nbsp;200 lô đẹp nhất dự án Century City tại Long Thành. Bảng giá bán chính thức từ Kim
+                                    Tải ngay bảng giá mới nhất 6/2021 của&nbsp;200 lô đẹp nhất dự án Century City tại Long Thành. Bảng giá bán chính thức từ Kim
                                     Oanh Group.
                                 </p>
                                 <p style={{ textAlign: 'center' }}>
@@ -1435,7 +1435,7 @@ function LandingPage() {
                                                 đưa ra quyết định&nbsp;"xuống tiền".
                                             </p>
                                             <h3>
-                                                <span style={{ color: '#e67e22' }}>Chính sách dự án Century City 5/2021</span>
+                                                <span style={{ color: '#e67e22' }}>Chính sách dự án Century City 6/2021</span>
                                             </h3>
                                             <p style={{ textAlign: 'center' }}>
                                                 <img
@@ -1950,7 +1950,7 @@ function LandingPage() {
                                                 </a>
                                             </p>
                                             <p>
-                                                <i className='fa fa-envelope-square' /> Email: hotro.kimoanhgroup@gmail.com
+                                                <i className='fa fa-envelope-square' /> Email: andiaockimoanh@gmail.com
                                             </p>
                                         </div>
                                     </div>
