@@ -43,8 +43,6 @@ import HOBOI from '../images/chinh-sach/Ho-boi.jpg'
 import TTTM from '../images/chinh-sach/Trung-tam-thuong-mai.jpg'
 import TRUONGHOC from '../images/chinh-sach/Truong-hoc-tu-mam-non-den-THCS.jpg'
 
-
-
 import DEFAULT from '../images/nha-mau/defaultpn.jpg'
 import MAU1 from '../images/nha-mau/mau-1.jpg'
 import MAUNHAVUON from '../images/nha-mau/mau-nha-vuon.jpg'
@@ -68,8 +66,8 @@ import BANGGIACENTURYCITY06144945 from '../images/chinh-sach/06144945-bang-gia-c
 import GIASHOPHOUSECENTURYCITY25214402 from '../images/chinh-sach/25214402-gia-shophouse-century-city.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobeAfrica, faTemperatureLow } from '@fortawesome/free-solid-svg-icons'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAfrica, faTemperatureLow,faBars } from '@fortawesome/free-solid-svg-icons'
+import { faHome,faChevronRight,faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTree } from '@fortawesome/free-solid-svg-icons'
 import { faIndustry } from '@fortawesome/free-solid-svg-icons'
 import { faCommentSlash } from '@fortawesome/free-solid-svg-icons'
@@ -77,11 +75,13 @@ import { faRoad } from '@fortawesome/free-solid-svg-icons'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { URL_API } from '../constants/API'
-
+import { Image } from 'antd';
 function LandingPage() {
-
     const [isHidden, setIsHidden] = useState(true)
-
+    const [isMenu, setIsmenu] = useState(false)
+    const [isItemShow1, setIsItemShow1] = useState(false)
+    const [isItemShow2, setIsItemShow2] = useState(false)
+    const [isItemShow3, setIsItemShow3] = useState(false)
     useEffect(() => {
         window.addEventListener('scroll', function (event) {
             const stickDestination = document.getElementById('stick-flag-action')
@@ -93,12 +93,15 @@ function LandingPage() {
         })
 
         setTimeout(() => {
-            openModal();
+            openModal()
         }, 10000)
     }, [])
 
     const [data, setData] = useState({
-        fullname: "", phone: '', message: '', date: new Date()
+        fullname: '',
+        phone: '',
+        message: '',
+        date: new Date(),
     })
 
     const handleChange = (e) => {
@@ -108,7 +111,6 @@ function LandingPage() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-
         if (!data.fullname || !data.phone || !data.message) {
             return
         }
@@ -117,20 +119,16 @@ function LandingPage() {
             const response = await fetch(URL_API, {
                 method: 'POST',
                 headers: {
-                    'Content-type': 'application/json'
+                    'Content-type': 'application/json',
                 },
-                body: JSON.stringify([[data.fullname, data.phone, data.message, data.date.toLocaleString()]])
+                body: JSON.stringify([[data.fullname, data.phone, data.message, data.date.toLocaleString()]]),
             })
-
 
             const res = await response.json()
 
-            setData({ ...data, fullname: "", phone: '', message: '', date: new Date() })
-        } catch (error) {
-
-        }
+            setData({ ...data, fullname: '', phone: '', message: '', date: new Date() })
+        } catch (error) {}
     }
-
 
     const openModal = () => {
         setIsHidden(true)
@@ -142,6 +140,7 @@ function LandingPage() {
 
     return (
         <body
+            style={{ overflow: 'hidden' }}
             className='
             home
             page-template page-template-page-blank page-template-page-blank-php page page-id-9
@@ -153,9 +152,14 @@ function LandingPage() {
             <a className='skip-link screen-reader-text' href='#main'>
                 Skip to content
             </a>
-            <div id='wrapper'>
-                <header id='header' className='header has-sticky sticky-jump' id="stick-flag-action">
-                    <div className='header-wrapper' id="header-sticky-id">
+            <div
+                id='wrapper'
+                style={isMenu ? { height: '100vh', overflowY: 'hidden', opacity: 0.5 } : {}}
+                onClick={() => {
+                    // setIsmenu(false)
+                }}>
+                <header id='header' className='header has-sticky sticky-jump' id='stick-flag-action'>
+                    <div className='header-wrapper' id='header-sticky-id'>
                         <div id='masthead' className='header-main show-logo-center nav-dark'>
                             <div className='header-inner flex-row container logo-center' role='navigation'>
                                 <div id='logo' className='flex-col logo'>
@@ -163,12 +167,17 @@ function LandingPage() {
                                         <img width={123} height={100} src={LOGO} className='header-logo-dark' alt='Century City' />
                                     </a>
                                 </div>
-                                <div className='flex-col show-for-medium flex-left'>
+                                <div
+                                    className='flex-col show-for-medium flex-left'
+                                    onClick={() => {
+                                        setIsmenu(true)
+                                    }}>
                                     <ul className='mobile-nav nav nav-left'>
                                         <li className='nav-icon has-icon'>
                                             <div className='header-button'>
                                                 <a
-                                                    href='#'
+                                                style={{alignSelf:'center'}}
+                                                    // href='#'
                                                     data-open='#main-menu'
                                                     data-pos='left'
                                                     data-bg='main-menu-overlay'
@@ -176,7 +185,7 @@ function LandingPage() {
                                                     className='icon button round is-outline is-small'
                                                     aria-controls='main-menu'
                                                     aria-expanded='false'>
-                                                    <i className='fa fa-bars' />
+                                                    <FontAwesomeIcon  icon={faBars} size="40"/>
                                                 </a>
                                             </div>
                                         </li>
@@ -282,7 +291,7 @@ function LandingPage() {
                                 </h3>
                                 <blockquote>
                                     <p>
-                                        Quý khách vui lòng điền thông tin bên dưới để nhận tư vấn, ưu tiên chọn vị trí đẹp và căn phù hợp, Hoặc liên hệ
+                                        Quý khách vui lòng điền thông tin bên dưới để nhận tư vấn, ưu tiên chọn vị trí đẹp và căn phù hợp, Hoặc liên hệ{' '}
                                         <span style={{ fontSize: '20px' }}>
                                             <strong>
                                                 <u>
@@ -356,7 +365,9 @@ function LandingPage() {
                                             </div>
                                             <div className='col colbtn'>
                                                 <div className='col-inner'>
-                                                    <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>Đăng ký</button>
+                                                    <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>
+                                                        Đăng ký
+                                                    </button>
                                                 </div>
                                                 <p />
                                             </div>
@@ -404,10 +415,13 @@ function LandingPage() {
                                                         </span>
                                                         &nbsp;(Phòng kinh doanh Chủ Đầu Tư).&nbsp;Hỗ trợ miễn phí xe đưa đón quý khách tham quan dự án 24/7.
                                                     </p>
-                                                    <a className='button primary bounceInUp eds-on-scroll btn-animate popup' href='#' onClick={e => {
-                                                        e.preventDefault()
-                                                        openModal();
-                                                    }}>
+                                                    <a
+                                                        className='button primary bounceInUp eds-on-scroll btn-animate popup'
+                                                        href='#'
+                                                        onClick={(e) => {
+                                                            e.preventDefault()
+                                                            openModal()
+                                                        }}>
                                                         <span>ĐĂNG KÝ NGAY</span>
                                                     </a>
                                                 </div>
@@ -420,7 +434,7 @@ function LandingPage() {
                                 </div>
                             </div>
                         </section>
-                        <section className='bang-gia' id="banggia">
+                        <section className='bang-gia' id='banggia'>
                             <div className='container'>
                                 <h2 style={{ textAlign: 'center' }}>BẢNG GIÁ MỚI NHẤT</h2>
                                 <p style={{ textAlign: 'center' }}>
@@ -430,7 +444,12 @@ function LandingPage() {
                                 <p style={{ textAlign: 'center' }}>
                                     <img alt='' height={536} src={BANGGIACENTURYCITY06144945} width={817} />
                                 </p>
-                                <p style={{ textAlign: 'center' }}>
+                                <p
+                                    style={{ textAlign: 'center' }}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        openModal()
+                                    }}>
                                     <a className='button primary eds-on-scroll btn-animate eds-scroll-visible bounceInUp popup' href='#'>
                                         <span>TẢI BẢNG GIÁ ĐẦY ĐỦ</span>
                                     </a>
@@ -801,7 +820,7 @@ function LandingPage() {
                                                             Khu đô thị
                                                             <span style={{ color: '#e67e22' }}>
                                                                 <em>
-                                                                    <strong>Century City</strong>
+                                                                    <strong> Century City</strong>
                                                                 </em>
                                                             </span>
                                                             &nbsp;nằm trên hai mặt tiền đường huyết mạch của huyện Long Thành, toạ lạc ngay ĐT 769 và đường Cầu
@@ -833,11 +852,7 @@ function LandingPage() {
                                         <div className='col-inner text-center'>
                                             <div className='location'>
                                                 <div className='section-image text-center'>
-                                                    <img
-                                                        src={VITRI}
-                                                        alt='Vị trí dự án Century City Long Thành'
-                                                        className='img-fluid'
-                                                    />
+                                                    <img src={VITRI} alt='Vị trí dự án Century City Long Thành' className='img-fluid' />
                                                     <svg
                                                         version='1.1'
                                                         id='Layer_1'
@@ -1174,7 +1189,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='maunha' data-type='image' href='/images/nha-mau/pho1.jpg'>
+                                                    <a data-fancybox='maunha' data-type='image' href={PHO1}>
                                                         <div className='image-cover' style={{ paddingTop: '100%' }}>
                                                             <img
                                                                 width={712}
@@ -1199,7 +1214,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='maunha' data-type='image' href='/images/nha-mau/mau-nha-vuon.jpg'>
+                                                    <a data-fancybox='maunha' data-type='image' href={MAUNHAVUON}>
                                                         <div className='image-cover' style={{ paddingTop: '100%' }}>
                                                             <img
                                                                 width={712}
@@ -1224,7 +1239,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='maunha' data-type='image' href='/images/nha-mau/mau-shop.jpg'>
+                                                    <a data-fancybox='maunha' data-type='image' href={MAUSHOP}>
                                                         <div className='image-cover' style={{ paddingTop: '100%' }}>
                                                             <img
                                                                 width={712}
@@ -1249,7 +1264,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='maunha' data-type='image' href='/images/nha-mau/mau-1.jpg'>
+                                                    <a data-fancybox='maunha' data-type='image' href={MAU1}>
                                                         <div className='image-cover' style={{ paddingTop: '100%' }}>
                                                             <img
                                                                 width={712}
@@ -1375,7 +1390,7 @@ function LandingPage() {
                                             </div>
                                             <div className='img has-hover x md-x lg-x y md-y lg-y' id='image_988154758'>
                                                 <div className='img-inner dark'>
-                                                    <a data-fancybox='tiendo' data-type='image' href='/images/Phan-lo-Binh-Son.jpg'>
+                                                    <a data-fancybox='tiendo' data-type='image' href={PHANLOBINHSON}>
                                                         <img
                                                             width={1024}
                                                             height={731}
@@ -1499,7 +1514,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-551418.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P968551}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1523,7 +1538,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-968551.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P968551}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1547,7 +1562,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-742879.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P742879}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1571,7 +1586,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-435680.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P435680}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1595,7 +1610,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-852814.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P852814}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1619,7 +1634,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-119636.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P119636}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1643,7 +1658,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-938179.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P938179}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1667,7 +1682,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-279648.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P279648}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1691,7 +1706,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-793963.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P793963}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1715,7 +1730,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-790991.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P790991}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1739,7 +1754,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-856793.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P856793}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1763,7 +1778,7 @@ function LandingPage() {
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
-                                                    <a data-fancybox='hinhanh' data-type='image' href='/media/photo/o8-301888.jpg'>
+                                                    <a data-fancybox='hinhanh' data-type='image' href={P301888}>
                                                         <div className>
                                                             <img
                                                                 width={1246}
@@ -1801,13 +1816,59 @@ function LandingPage() {
                                             </div>
                                             <div>
                                                 <ul id='accordion'>
-                                                    <li className='item'>
-                                                        <h3>Chủ đầu tư dự án Century City là ai?</h3>
-                                                        <div className='content'>
-                                                            <p>Công ty Cổ phần Đầu tư và phát triển Thuận Lợi.</p>
+                                                    <li className='item itemx' style={{ listStyle: 'none' }}>
+                                                        <div style={{ display: 'flex',padding:'20px' }}>
+                                                            <div onClick={()=>{
+                                                                 setIsItemShow2(false)
+                                                                 setIsItemShow1(!isItemShow1)
+                                                                 setIsItemShow3(false)
+                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow1 ? faChevronRight : faChevronDown} /> </div>
+                                                            <div>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
+                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow1 ? 'none':''}} className='content'>
+                                                                    <p>Công ty Cổ phần Đầu tư và phát triển Thuận Lợi.</p>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </li>
-                                                    <li className='item'>
+                                                    <li className='item itemx' style={{ listStyle: 'none' }}>
+                                                        <div style={{ display: 'flex',padding:'20px' }}>
+                                                            <div onClick={()=>{
+                                                                setIsItemShow2(!isItemShow2)
+                                                                setIsItemShow1(false)
+                                                                setIsItemShow3(false)
+                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow2 ? faChevronRight : faChevronDown} />  </div>
+                                                            <div>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
+                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow2 ? 'none':''}} className='content'>
+                                                                    <p>
+                                                                        {' '}
+                                                                        Giá bán đất nền 16 triệu đồng/m2. Giá nhà phố, shophouse, biệt thự vui lòng liên hệ
+                                                                        Hotline 0932 744 445
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li className='item itemx' style={{ listStyle: 'none' }}>
+                                                        <div style={{ display: 'flex',padding:'20px' }}>
+                                                            <div onClick={()=>{
+                                                                 setIsItemShow2(false)
+                                                                 setIsItemShow1(false)
+                                                                 setIsItemShow3(!isItemShow3)
+                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}><FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow3 ? faChevronRight : faChevronDown} /> </div>
+                                                            <div>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>
+                                                                    Pháp lý dự án Century City như thế nào?
+                                                                </h3>
+                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow3 ? 'none':''}} className='content'>
+                                                                    <p>Pháp lý minh bạch, đã có trích lục từng nền, phê duyệt 1/500.</p>
+                                                                    <p>Dự kiến quý 3/2021 chuyển nhượng sổ mang tên khách hàng.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    {/* <li className='item'>
                                                         <h3>Giá bán năm 2021 là bao nhiêu?</h3>
                                                         <div className='content'>
                                                             <p>
@@ -1815,14 +1876,14 @@ function LandingPage() {
                                                                 744 445
                                                             </p>
                                                         </div>
-                                                    </li>
-                                                    <li className='item'>
+                                                    </li> */}
+                                                    {/* <li className='item'>
                                                         <h3>Pháp lý dự án Century City như thế nào?</h3>
                                                         <div className='content'>
                                                             <p>Pháp lý minh bạch, đã có trích lục từng nền, phê duyệt 1/500.</p>
                                                             <p>Dự kiến quý 3/2021 chuyển nhượng sổ mang tên khách hàng.</p>
                                                         </div>
-                                                    </li>
+                                                    </li> */}
                                                 </ul>
                                             </div>
                                         </div>
@@ -1863,7 +1924,6 @@ function LandingPage() {
                                                         placeholder='Họ tên'
                                                         onChange={handleChange}
                                                         value={data.fullname}
-
                                                     />
                                                 </span>
                                             </div>
@@ -1903,9 +1963,11 @@ function LandingPage() {
                                             </div>
                                             <p />
                                         </div>
-                                        <div className='col medium-12 small-12 large-12 formgiua'>
+                                        <div className='col medium-12 small-12 large-12 formgiua' style={{textAlign:'center'}}>
                                             <div className='col-inner'>
-                                                <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>Đăng ký</button>
+                                                <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>
+                                                    Đăng ký
+                                                </button>
                                             </div>
                                             <p />
                                         </div>
@@ -1976,58 +2038,98 @@ function LandingPage() {
                 </footer>
             </div>
 
-            <div id='main-menu' className='mobile-sidebar no-scrollbar mfp-hide'>
-                <div className='sidebar-menu no-scrollbar'>
-                    <ul className='nav nav-sidebar nav-vertical nav-uppercase'>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#gioithieu' className='nav-top-link'>
-                                GIỚI THIỆU
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#vitri' className='nav-top-link'>
-                                VỊ TRÍ
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#tienich' className='nav-top-link'>
-                                TIỆN ÍCH
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#' className='nav-top-link'>
-                                SẢN PHẨM
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#matbang' className='nav-top-link'>
-                                MẶT BẰNG
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#tiendo' className='nav-top-link'>
-                                TIẾN ĐỘ
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#banggia' className='nav-top-link'>
-                                BẢNG GIÁ
-                            </a>
-                        </li>
-                        <li className='menu-item menu-item-type-custom menu-item-object-custom'>
-                            <a href='#lhmh' className='nav-top-link'>
-                                LIÊN HỆ
-                            </a>
-                        </li>
-                    </ul>
+            <div id='main-menu' className='mobile-sidebar no-scrollbar mfp-containerr' style={{ display: isMenu ? '' : 'none' }}>
+                <div
+                    style={{ width: '100%', height: '100%' }}
+                    onClick={() => {
+                        setIsmenu(false)
+                    }}></div>
+                <div className='mfp-content'>
+                    <div className='sidebar-menu no-scrollbar'>
+                        <ul className='nav nav-sidebar nav-vertical nav-uppercase'>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom px-bd'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#gioithieu' className='nav-top-link pd-px'>
+                                    GIỚI THIỆU
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom px-bd'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#vitri' className='nav-top-link pd-px'>
+                                    VỊ TRÍ
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom px-bd'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#tienich' className='nav-top-link pd-px'>
+                                    TIỆN ÍCH
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#sanpham' className='nav-top-link pd-px'>
+                                    SẢN PHẨM
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#matbang' className='nav-top-link pd-px'>
+                                    MẶT BẰNG
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#tiendo' className='nav-top-link pd-px'>
+                                    TIẾN ĐỘ
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#banggia' className='nav-top-link pd-px'>
+                                    BẢNG GIÁ
+                                </a>
+                            </li>
+                            <li
+                                className='menu-item menu-item-type-custom menu-item-object-custom'
+                                onClick={() => {
+                                    setIsmenu(false)
+                                }}>
+                                <a href='#lhmh' className='nav-top-link pd-px'>
+                                    LIÊN HỆ
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
             <div className='hotline-phone-ring-wrap'>
                 <div className='hotline-phone-ring'>
                     <div className='hotline-phone-ring-img-circle'>
                         <a href='tel:0907 839 986' className='pps-btn-img'>
                             {' '}
-                            <img src={PHONE} alt='Hotline' width='50'/>{' '}
+                            <img src={PHONE} alt='Hotline' width='50' />{' '}
                         </a>
                     </div>
                 </div>
@@ -2044,84 +2146,79 @@ function LandingPage() {
                 </a>
             </div>
 
-            {isHidden && <div id='modal1' className="popup1 md-effect md-show" >
-                <div className='form-popup' action='#' id='popupregister' >
-                    <div className='form-popup-content'>
-                        <div className='md-form'>
-                            <img src={CROSS} className='close' id='md-close' title='Đóng' onClick={closeModal} />
-                            <div className='form-inner'>
-                                <div className='form-text'>
-                                    <h3 style={{ textAlign: 'center' }}>
-                                        <span style={{ color: '#f94b00' }}>YÊU CẦU GỌI TƯ VẤN</span>
-                                    </h3>
-                                    <p style={{ textAlign: 'center' }}>
-                                        ✅&nbsp; <strong>ĐẶT</strong>&nbsp;<strong>CỌC 50 TRIỆU</strong>
-                                    </p>
-                                    <p style={{ textAlign: 'center' }}>
-                                        ✅&nbsp;
-                                        <strong>
-                                            CHỌN VỊ TRÍ ĐẸP CHỈ TỪ <span style={{ color: '#e74c3c' }}>16.8 TR/M2</span>
-                                            {'{'}' '{'}'}
-                                        </strong>
-                                    </p>
-                                    <p style={{ textAlign: 'center' }}>
-                                        ✅&nbsp;<b>&nbsp;Tải bảng giá 200 căn đẹp hôm nay</b>
-                                    </p>
-                                    <p style={{ textAlign: 'center' }}>
-                                        <strong>&nbsp;</strong>✅&nbsp;<strong>Quà tặng NGAY 20 chỉ SJC</strong>
-                                    </p>
-                                    <p style={{ textAlign: 'center' }}>
-                                        <strong>Hoặc liên hệ HOTLINE:</strong>
-                                    </p>
-                                    <p style={{ textAlign: 'center' }}>
-                                        ☎️&nbsp;&nbsp;
-                                        <span style={{ fontSize: '20px' }}>
+            {isHidden && (
+                <div id='modal1' className='popup1 md-effect md-show'>
+                    <div className='form-popup' action='#' id='popupregister'>
+                        <div className='form-popup-content'>
+                            <div className='md-form'>
+                                <img src={CROSS} className='close' id='md-close' title='Đóng' onClick={closeModal} />
+                                <div className='form-inner'>
+                                    <div className='form-text'>
+                                        <h3 style={{ textAlign: 'center' }}>
+                                            <span style={{ color: '#f94b00' }}>YÊU CẦU GỌI TƯ VẤN</span>
+                                        </h3>
+                                        <p style={{ textAlign: 'center' }}>
+                                            ✅&nbsp; <strong>ĐẶT</strong>&nbsp;<strong>CỌC 50 TRIỆU</strong>
+                                        </p>
+                                        <p style={{ textAlign: 'center' }}>
+                                            ✅&nbsp;
                                             <strong>
-                                                <a href='tel:0907 839 986'>0907 839 986</a>
+                                                CHỌN VỊ TRÍ ĐẸP CHỈ TỪ <span style={{ color: '#e74c3c' }}>16.8 TR/M2</span>
                                             </strong>
-                                        </span>
-                                    </p>
-                                    <input
-                                        type='text'
-                                        name='fullname'
-                                        placeholder='Họ tên (*)'
-                                        onChange={handleChange}
-                                        value={data.fullname}
-
-                                    />
-                                    <input
-                                        type='text'
-                                        name='phone'
-                                        placeholder='Số điện thoại (*)'
-                                        onChange={handleChange}
-                                        value={data.phone}
-
-                                    />
-                                    <textarea type='text' name='message' placeholder='Ghi chú...' rows={4} autoComplete='off' value defaultValue={''} onChange={handleChange} value={data.message}
-                                    />
-                                    <button onClick={handleSubmit}>
-                                        Gửi thông tin <i className='fa fa-paper-plane' />
-                                    </button>
-                                    <div id='loading' style={{ display: 'none' }}>
-                                        <span>
-                                            <img src='/js/pop/ajax-loader.gif' align='middle' valign='middle' border={0} />
-                                            &nbsp;Loading...{'{'}' '{'}'}
-                                        </span>
+                                        </p>
+                                        <p style={{ textAlign: 'center' }}>
+                                            ✅&nbsp;<b>&nbsp;Tải bảng giá 200 căn đẹp hôm nay</b>
+                                        </p>
+                                        <p style={{ textAlign: 'center' }}>
+                                            <strong>&nbsp;</strong>✅&nbsp;<strong>Quà tặng NGAY 20 chỉ SJC</strong>
+                                        </p>
+                                        <p style={{ textAlign: 'center' }}>
+                                            <strong>Hoặc liên hệ HOTLINE:</strong>
+                                        </p>
+                                        <p style={{ textAlign: 'center' }}>
+                                            ☎️&nbsp;&nbsp;
+                                            <span style={{ fontSize: '20px' }}>
+                                                <strong>
+                                                    <a href='tel:0907 839 986'>0907 839 986</a>
+                                                </strong>
+                                            </span>
+                                        </p>
+                                        <input type='text' name='fullname' placeholder='Họ tên (*)' onChange={handleChange} value={data.fullname} />
+                                        <input type='text' name='phone' placeholder='Số điện thoại (*)' onChange={handleChange} value={data.phone} />
+                                        <textarea
+                                            type='text'
+                                            name='message'
+                                            placeholder='Ghi chú...'
+                                            rows={4}
+                                            autoComplete='off'
+                                            value
+                                            defaultValue={''}
+                                            onChange={handleChange}
+                                            value={data.message}
+                                        />
+                                        <button onClick={handleSubmit}>
+                                            Gửi thông tin <i className='fa fa-paper-plane' />
+                                        </button>
+                                        <div id='loading' style={{ display: 'none' }}>
+                                            <span>
+                                                <img src='/js/pop/ajax-loader.gif' align='middle' valign='middle' border={0} />
+                                                &nbsp;Loading...{'{'}' '{'}'}
+                                            </span>
+                                        </div>
+                                        <input
+                                            name='__RequestVerificationToken'
+                                            type='hidden'
+                                            defaultValue='_eUQVq3q2l-F0GnpI7GnZJMomgFHFHe1LmhGgRm0t52LI7Fe536Yj1rE8pkn1EGeOVF0xEeb3TzbVfUZGrbL5-gfo9dfDeMBWy2WniZiWT01'
+                                        />
                                     </div>
-                                    <input
-                                        name='__RequestVerificationToken'
-                                        type='hidden'
-                                        defaultValue='_eUQVq3q2l-F0GnpI7GnZJMomgFHFHe1LmhGgRm0t52LI7Fe536Yj1rE8pkn1EGeOVF0xEeb3TzbVfUZGrbL5-gfo9dfDeMBWy2WniZiWT01'
-                                    />
                                 </div>
+                                <div className='clear' />
+                                {/* <div className='form-alert' style={{ display: 'none' }} /> */}
                             </div>
-                            <div className='clear' />
-                            {/* <div className='form-alert' style={{ display: 'none' }} /> */}
                         </div>
                     </div>
                 </div>
-            </div>
-            }
+            )}
 
             {/* <div className='md-overlay'></div> */}
         </body>

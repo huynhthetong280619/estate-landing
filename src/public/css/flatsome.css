@@ -1816,7 +1816,8 @@ li.hide-title>a {
 	background-color: rgba(0, 0, 0, 0.05)
 }
 .nav-sidebar.nav-vertical>li+li {
-	border-top: 1px solid #ececec
+	/* border-top: 1px solid #ececec */
+	border-top:1px solid rgba(255, 255, 255, 0.2) !important;
 }
 .dark .nav-sidebar.nav-vertical>li+li {
 	border-color: rgba(255, 255, 255, 0.2)
@@ -3397,6 +3398,19 @@ img.back-image,
 	outline: none !important;
 	-webkit-backface-visibility: hidden
 }
+.mfp-containerr {
+	text-align: center;
+	position: absolute;
+	width: 100% !important;
+	height: 100%;
+	left: 0;
+	top: 0;
+	/* padding: 30px; */
+	box-sizing: border-box;
+	/* background-color: #032540e6; */
+	width: 260px;
+	/* padding: 30px 0 !important; */
+}
 .mfp-container {
 	text-align: center;
 	position: absolute;
@@ -3417,10 +3431,20 @@ img.back-image,
 	padding: 40px 6.66%
 }
 .mfp-align-top .mfp-container:before {
-	display: none
+	display: inline-block;
 }
 .mfp-content {
-	position: relative;
+	background-color: #032540e6;
+	width: 260px;
+	top: 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 1045;
+	text-align: left;
+	/* margin: 0 auto; */
+	left: 0;
+	padding: 30px 0;
+	/* position: relative;
 	display: inline-block;
 	vertical-align: middle;
 	max-width: 100%;
@@ -3430,7 +3454,7 @@ img.back-image,
 	-ms-transform: translateY(-30px);
 	transform: translateY(-30px);
 	opacity: 0;
-	transition: transform .5s, opacity .3s
+	transition: transform .5s, opacity .3s */
 }
 .mfp-content-inner {
 	box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.2)
@@ -7967,4 +7991,39 @@ li.wc-layered-nav-rating .star-rating {
 }
 .stars a.star-5:after {
 	content: '\e005\e005\e005\e005\e005'
+}
+
+.pd-px{
+	padding-left:20px !important ;
+	padding-top: 15px !important;
+    padding-bottom: 15px !important;
+	font-weight: 700 !important;
+	color: #fff !important;
+	font-size: 17px !important;
+}
+/* .px-bd{
+	text-decoration: none;
+	border-bottom:1px solid rgba(255, 255, 255, 0.2) !important;
+} */
+
+.ui-accordion .ui-accordion-header{
+	display: block;
+    cursor: pointer;
+    position: relative;
+    margin: 8px 0 0px 0;
+    padding: .7em 0.5em .7em 90px;
+    font-size: 100%;
+    font-weight: 600;
+    color: #2121ff;
+    position: relative;
+    text-align: left;
+}
+
+.itemx{
+	position: relative;
+    background: #fff;
+    box-shadow: 17px 0 60px rgb(0 0 0 / 10%);
+    border-radius: 50px;
+    margin-bottom: 15px;
+    margin-left: 0 !important;
 }
