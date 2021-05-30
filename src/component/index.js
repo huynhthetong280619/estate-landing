@@ -77,7 +77,7 @@ import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { URL_API } from '../constants/API'
 import { Image } from 'antd';
 function LandingPage() {
-    const [isHidden, setIsHidden] = useState(true)
+    const [isHidden, setIsHidden] = useState(false)
     const [isMenu, setIsmenu] = useState(false)
     const [isItemShow1, setIsItemShow1] = useState(false)
     const [isItemShow2, setIsItemShow2] = useState(false)
@@ -176,7 +176,10 @@ function LandingPage() {
                                         <li className='nav-icon has-icon'>
                                             <div className='header-button'>
                                                 <a
-                                                style={{alignSelf:'center'}}
+                                                style={{alignSelf:'center', display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                borderColor: '#eecc79'}}
                                                     // href='#'
                                                     data-open='#main-menu'
                                                     data-pos='left'
@@ -1964,7 +1967,7 @@ function LandingPage() {
                                             <p />
                                         </div>
                                         <div className='col medium-12 small-12 large-12 formgiua' style={{textAlign:'center'}}>
-                                            <div className='col-inner'>
+                                            <div className='col-inner '>
                                                 <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>
                                                     Đăng ký
                                                 </button>

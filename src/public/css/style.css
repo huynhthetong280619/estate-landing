@@ -1616,7 +1616,7 @@ strong {
     padding: 8px 0;
 }
 
-.dangkythongtin input.wpcf7-form-control.wpcf7-submit {
+.dangkythongtin button.wpcf7-form-control.wpcf7-submit {
     text-align: center;
     margin: 0 auto;
     display: block;
