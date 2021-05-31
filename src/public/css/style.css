@@ -2545,7 +2545,7 @@ p.adjust-font {
     min-width: 190px;
     width: 190px;
     height: 30px;
-    /* background: url(images/bd-tt.png) no-repeat; */
+    background: url(../../images/banner-logo-map/bd-tt.png) no-repeat;
     background-size: contain;
     position: absolute;
     background-position: center;

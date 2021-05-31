@@ -763,7 +763,7 @@ function LandingPage() {
                         <section className='section duoi-mb pd-ss wh bd1' id='tong-quan-02' hidden>
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1527641100'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5'>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
                                         <div className='col-inner'>
                                             <div className='item-diathe fadeInLeft eds-on-scroll'>
                                                 <h2 className='title eds-on-scroll' style={{ textAlign: 'center' }}>
@@ -1024,7 +1024,7 @@ function LandingPage() {
                         <section className='section duoi-mb pd-ss bott-0 wh' id='section_1610846969'>
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1280681047'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5'>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
                                         <div className='col-inner'>
                                             <h2 className='title' style={{ textAlign: 'center' }}>
                                                 <span>PHÂN KHU CENTURY CENTER</span>
@@ -1034,10 +1034,10 @@ function LandingPage() {
                                                     Toạ lạc 600 mét trên mặt tiền đường ĐT 769, bao gồm các dãy Shophouse 3 mặt tiền; TTTM và hội nghị Century
                                                     Palace 1,2ha; các dãy shop tại tầng trệt của khu căn hộ cao tầng.
                                                 </p>
-                                                <p>
+                                                {/* <p>
                                                     Phân khu này được bố trí các dãy shophouse cao cấp, trung tâm thương mại – hội nghị Century Palace và khu
                                                     căn hộ cao tầng với các dãy shop ở tầng trệt.{' '}
-                                                </p>
+                                                </p> */}
                                             </div>
                                         </div>
                                     </div>
@@ -1079,7 +1079,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5'>
+                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
                                         <div className='col-inner'>
                                             <div id='PARAGRAPH474' className='ladi-element'>
                                                 <h2 className='title' style={{ textAlign: 'center' }}>
@@ -1101,7 +1101,7 @@ function LandingPage() {
                             <div className='bg section-bg fill bg-fill bg-loaded' />
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1519128383'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5'>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
                                         <div className='col-inner'>
                                             <h2 className='title' style={{ textAlign: 'center' }}>
                                                 <span>PHÂN KHU CENTURY GARDEN</span>
@@ -1114,7 +1114,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInDown eds-on-scroll medium-7 small-12 large-7'>
+                                    <div className='col res-w bounceInDown eds-on-scroll medium-7 small-12 large-7' >
                                         <div className='col-inner'>
                                             <div className='img has-hover x md-x lg-x y md-y lg-y' id='image_1911937505'>
                                                 <div className='img-inner image-cover dark' style={{ paddingTop: '50%' }}>
@@ -1152,7 +1152,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5'>
+                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
                                         <div className='col-inner'>
                                             <div id='PARAGRAPH474' className='ladi-element'>
                                                 <h2 className='title' style={{ textAlign: 'center' }}>
