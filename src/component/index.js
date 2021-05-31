@@ -66,7 +66,7 @@ import BANGGIACENTURYCITY06144945 from '../images/chinh-sach/06144945-bang-gia-c
 import GIASHOPHOUSECENTURYCITY25214402 from '../images/chinh-sach/25214402-gia-shophouse-century-city.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobeAfrica, faTemperatureLow, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAfrica, faTemperatureLow, faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import { faHome, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTree } from '@fortawesome/free-solid-svg-icons'
 import { faIndustry } from '@fortawesome/free-solid-svg-icons'
@@ -75,7 +75,7 @@ import { faRoad } from '@fortawesome/free-solid-svg-icons'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { URL_API } from '../constants/API'
-import { Image, notification } from 'antd';
+import { Image, notification } from 'antd'
 
 function LandingPage() {
     const [isHidden, setIsHidden] = useState(false)
@@ -86,10 +86,17 @@ function LandingPage() {
     useEffect(() => {
         window.addEventListener('scroll', function (event) {
             const stickDestination = document.getElementById('stick-flag-action')
+            const iconRoll = document.getElementById('toansida')
+
             if (this.scrollY > 100) {
                 stickDestination.classList.add('stuck')
+                iconRoll.style.display=""
             } else {
                 stickDestination.classList.remove('stuck')
+                iconRoll.style.display="none"
+            }
+            if(this.scrollY > 200){
+
             }
         })
 
@@ -117,7 +124,7 @@ function LandingPage() {
             notification.warning({
                 placement: 'topRight',
                 message: 'Cảnh báo',
-                description: 'Không thành công.Vui lòng thử lại!'
+                description: 'Không thành công.Vui lòng thử lại!',
             })
             return
         }
@@ -138,13 +145,13 @@ function LandingPage() {
             notification.success({
                 placement: 'topRight',
                 message: 'Thông báo',
-                description: 'Đăng ký thành công!'
+                description: 'Đăng ký thành công!',
             })
         } catch (error) {
             notification.error({
                 placement: 'topRight',
                 message: 'Lỗi',
-                description: 'Hệ thống xảy ra lỗi!Vui lòng thử lại!'
+                description: 'Hệ thống xảy ra lỗi!Vui lòng thử lại!',
             })
         }
     }
@@ -196,10 +203,11 @@ function LandingPage() {
                                             <div className='header-button'>
                                                 <a
                                                     style={{
-                                                        alignSelf: 'center', display: 'flex',
+                                                        alignSelf: 'center',
+                                                        display: 'flex',
                                                         justifyContent: 'center',
                                                         alignItems: 'center',
-                                                        borderColor: '#eecc79'
+                                                        borderColor: '#eecc79',
                                                     }}
                                                     // href='#'
                                                     data-open='#main-menu'
@@ -209,7 +217,7 @@ function LandingPage() {
                                                     className='icon button round is-outline is-small'
                                                     aria-controls='main-menu'
                                                     aria-expanded='false'>
-                                                    <FontAwesomeIcon icon={faBars} size="40" />
+                                                    <FontAwesomeIcon icon={faBars} size='40' />
                                                 </a>
                                             </div>
                                         </li>
@@ -787,7 +795,7 @@ function LandingPage() {
                         <section className='section duoi-mb pd-ss wh bd1' id='tong-quan-02' hidden>
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1527641100'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{ margin: 'auto' }}>
                                         <div className='col-inner'>
                                             <div className='item-diathe fadeInLeft eds-on-scroll'>
                                                 <h2 className='title eds-on-scroll' style={{ textAlign: 'center' }}>
@@ -1048,7 +1056,7 @@ function LandingPage() {
                         <section className='section duoi-mb pd-ss bott-0 wh' id='section_1610846969'>
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1280681047'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{ margin: 'auto' }}>
                                         <div className='col-inner'>
                                             <h2 className='title' style={{ textAlign: 'center' }}>
                                                 <span>PHÂN KHU CENTURY CENTER</span>
@@ -1103,7 +1111,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
+                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{ margin: 'auto' }}>
                                         <div className='col-inner'>
                                             <div id='PARAGRAPH474' className='ladi-element'>
                                                 <h2 className='title' style={{ textAlign: 'center' }}>
@@ -1125,7 +1133,7 @@ function LandingPage() {
                             <div className='bg section-bg fill bg-fill bg-loaded' />
                             <div className='section-content relative'>
                                 <div className='row row-fluid' id='row-1519128383'>
-                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
+                                    <div className='col res-w left-0 bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{ margin: 'auto' }}>
                                         <div className='col-inner'>
                                             <h2 className='title' style={{ textAlign: 'center' }}>
                                                 <span>PHÂN KHU CENTURY GARDEN</span>
@@ -1138,7 +1146,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInDown eds-on-scroll medium-7 small-12 large-7' >
+                                    <div className='col res-w bounceInDown eds-on-scroll medium-7 small-12 large-7'>
                                         <div className='col-inner'>
                                             <div className='img has-hover x md-x lg-x y md-y lg-y' id='image_1911937505'>
                                                 <div className='img-inner image-cover dark' style={{ paddingTop: '50%' }}>
@@ -1176,7 +1184,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{margin:'auto'}}>
+                                    <div className='col res-w bounceInUp eds-on-scroll medium-5 small-12 large-5' style={{ margin: 'auto' }}>
                                         <div className='col-inner'>
                                             <div id='PARAGRAPH474' className='ladi-element'>
                                                 <h2 className='title' style={{ textAlign: 'center' }}>
@@ -2236,14 +2244,26 @@ function LandingPage() {
                                                 <ul id='accordion'>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
                                                         <div style={{ display: 'flex', padding: '20px' }}>
-                                                            <div onClick={() => {
-                                                                setIsItemShow2(false)
-                                                                setIsItemShow1(!isItemShow1)
-                                                                setIsItemShow3(false)
-                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow1 ? faChevronRight : faChevronDown} /> </div>
+                                                            <div
+                                                                onClick={() => {
+                                                                    setIsItemShow2(false)
+                                                                    setIsItemShow1(!isItemShow1)
+                                                                    setIsItemShow3(false)
+                                                                }}
+                                                                style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}>
+                                                                {' '}
+                                                                <FontAwesomeIcon
+                                                                    style={{ transition: 'all 500ms' }}
+                                                                    icon={!isItemShow1 ? faChevronRight : faChevronDown}
+                                                                />{' '}
+                                                            </div>
                                                             <div>
-                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
-                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow1 ? 'none' : '' }} className='content'>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>
+                                                                    Chủ đầu tư dự án Century City là ai?
+                                                                </h3>
+                                                                <div
+                                                                    style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow1 ? 'none' : '' }}
+                                                                    className='content'>
                                                                     <p>Công ty Cổ phần Đầu tư và phát triển Thuận Lợi.</p>
                                                                 </div>
                                                             </div>
@@ -2251,14 +2271,26 @@ function LandingPage() {
                                                     </li>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
                                                         <div style={{ display: 'flex', padding: '20px' }}>
-                                                            <div onClick={() => {
-                                                                setIsItemShow2(!isItemShow2)
-                                                                setIsItemShow1(false)
-                                                                setIsItemShow3(false)
-                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow2 ? faChevronRight : faChevronDown} />  </div>
+                                                            <div
+                                                                onClick={() => {
+                                                                    setIsItemShow2(!isItemShow2)
+                                                                    setIsItemShow1(false)
+                                                                    setIsItemShow3(false)
+                                                                }}
+                                                                style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}>
+                                                                {' '}
+                                                                <FontAwesomeIcon
+                                                                    style={{ transition: 'all 500ms' }}
+                                                                    icon={!isItemShow2 ? faChevronRight : faChevronDown}
+                                                                />{' '}
+                                                            </div>
                                                             <div>
-                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
-                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow2 ? 'none' : '' }} className='content'>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>
+                                                                    Chủ đầu tư dự án Century City là ai?
+                                                                </h3>
+                                                                <div
+                                                                    style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow2 ? 'none' : '' }}
+                                                                    className='content'>
                                                                     <p>
                                                                         {' '}
                                                                         Giá bán đất nền 16 triệu đồng/m2. Giá nhà phố, shophouse, biệt thự vui lòng liên hệ
@@ -2270,16 +2302,25 @@ function LandingPage() {
                                                     </li>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
                                                         <div style={{ display: 'flex', padding: '20px' }}>
-                                                            <div onClick={() => {
-                                                                setIsItemShow2(false)
-                                                                setIsItemShow1(false)
-                                                                setIsItemShow3(!isItemShow3)
-                                                            }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}><FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow3 ? faChevronRight : faChevronDown} /> </div>
+                                                            <div
+                                                                onClick={() => {
+                                                                    setIsItemShow2(false)
+                                                                    setIsItemShow1(false)
+                                                                    setIsItemShow3(!isItemShow3)
+                                                                }}
+                                                                style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}>
+                                                                <FontAwesomeIcon
+                                                                    style={{ transition: 'all 500ms' }}
+                                                                    icon={!isItemShow3 ? faChevronRight : faChevronDown}
+                                                                />{' '}
+                                                            </div>
                                                             <div>
                                                                 <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>
                                                                     Pháp lý dự án Century City như thế nào?
                                                                 </h3>
-                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow3 ? 'none' : '' }} className='content'>
+                                                                <div
+                                                                    style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow3 ? 'none' : '' }}
+                                                                    className='content'>
                                                                     <p>Pháp lý minh bạch, đã có trích lục từng nền, phê duyệt 1/500.</p>
                                                                     <p>Dự kiến quý 3/2021 chuyển nhượng sổ mang tên khách hàng.</p>
                                                                 </div>
@@ -2450,9 +2491,10 @@ function LandingPage() {
                             </div>
                         </div>
                     </section>
-                    <a href='#top' className='back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle' id='top-link'>
+                    {/* <a href='#top' className='' id='top-link'>
                         <i className='fa fa-chevron-up' />
-                    </a>
+                        tr
+                    </a> */}
                 </footer>
             </div>
 
@@ -2559,11 +2601,42 @@ function LandingPage() {
                 </div>
             </div>
             <div className='hotline-zalo-ring-wrap'>
-                <a href='https://zalo.me/andiaockimoanh' target="_blank">
+                <a href='https://zalo.me/andiaockimoanh' target='_blank'>
                     <img src={ZALO} alt='Hotline' width='50' style={{ borderRadius: '50%', cursor: 'pointer' }} />
                 </a>
             </div>
-
+            <div style={{ width: '100%' }}>
+                <div
+                id="toansida"
+                    className='hotline-zalo-ring-wrap'
+                    style={{
+                        right: 8,
+                        // paddingRight: '5px',
+                        // paddingTop: '4px',
+                        display:'none'
+                    }}>
+                    <a
+                    id="luoiqua"
+                   href="#top"
+                        style={{
+                            border: '5px solid #f7e254',
+                            width: '50px',
+                            height: '50px',
+                            position: 'absolute',
+                            bottom: '15px',
+                            height: '50px',
+                            borderRadius:'50%',
+                            right:0
+                        }}>
+                        <FontAwesomeIcon
+                            style={{ transition: 'all 500ms', fontWeight: 'bold', fontSize: '40px', textAlign: 'center',paddingLeft:'8px' }}
+                            icon={faChevronUp}
+                            color={'#f7e254'}
+                        />
+                    </a>
+                    {/* <img src={ZALO} alt='Hotline' width='20' style={{ borderRadius: '50%', cursor: 'pointer' }} /> */}
+                </div>
+            </div>
             {isHidden && (
                 <div id='modal1' className='popup1 md-effect md-show'>
                     <div className='form-popup' action='#' id='popupregister'>
