@@ -1217,7 +1217,7 @@ function LandingPage() {
                                     </div>
                                 </div>
                                 <div className='row row-full-width' id='row-279482191'>
-                                    <div className='col medium-6 small-6 large-3'>
+                                    {/* <div className='col medium-6 small-6 large-3'>
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
@@ -1316,7 +1316,109 @@ function LandingPage() {
                                                 </div>
                                             </div>
                                         </div>
+                                    </div> */}
+                                    <Image.PreviewGroup>
+                                        <div className='col medium-6 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='maunha' data-type='image' href={PHO1}> */}
+                                                        <div >
+                                                            <Image
+                                                                // width={712}
+                                                                // height={300}
+                                                                src={PHO1}
+                                                                className='attachment-original size-original'
+                                                                alt=''
+                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner'>
+                                                        <p>MẪU NHÀ LIÊN KẾ VƯỜN</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div className='col medium-6 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAUNHAVUON}> */}
+                                                        <div >
+                                                            <Image
+                                                                // width={712}
+                                                                // height={300}
+                                                                src={MAUNHAVUON}
+                                                                className='attachment-original size-original'
+                                                                alt=''
+                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner'>
+                                                        <p>Mẫu nhà phố liên kế</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-6 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAUSHOP}> */}
+                                                        <div >
+                                                            <Image
+                                                                // width={712}
+                                                                // height={300}
+                                                                src={MAUSHOP}
+                                                                className='attachment-original size-original'
+                                                                alt=''
+                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner'>
+                                                        <p>Mẫu nhà biệt thự</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-6 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAU1}> */}
+                                                        <div >
+                                                            <Image
+                                                                // width={712}
+                                                                // height={300}
+                                                                src={MAU1}
+                                                                className='attachment-original size-original'
+                                                                alt=''
+                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner'>
+                                                        <p>Mẫu Shophouse</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </Image.PreviewGroup>
                                 </div>
                             </div>
                         </section>
@@ -1542,7 +1644,7 @@ function LandingPage() {
                                     </div>
                                 </div>
                                 <div className='row row-full-width' id='row-1779965586'>
-                                    <div className='col medium-4 small-6 large-3'>
+                                    {/* <div className='col medium-4 small-6 large-3'>
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
                                                 <div className='box-image'>
@@ -1830,6 +1932,298 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div>
+                                */}
+                               <Image.PreviewGroup>
+                               <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P968551}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P968551}
+                                                                data-src={P551418}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P968551}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P968551}
+                                                                data-src={P968551}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P742879}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P742879}
+                                                                data-src={P742879}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P435680}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P435680}
+                                                                data-src={P435680}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P852814}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P852814}
+                                                                data-src={P852814}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P119636}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P119636}
+                                                                data-src={P119636}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P938179}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P938179}
+                                                                data-src={P938179}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P279648}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P279648}
+                                                                data-src={P279648}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P793963}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P793963}
+                                                                data-src={P793963}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P790991}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P790991}
+                                                                data-src={P790991}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P856793}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P856793}
+                                                                data-src={P856793}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='col medium-4 small-6 large-3'>
+                                        <div className='col-inner'>
+                                            <div className='box has-hover has-hover box-text-bottom'>
+                                                <div className='box-image'>
+                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P301888}> */}
+                                                        <div className>
+                                                            <Image
+                                                                // width={1246}
+                                                                // height={300}
+                                                                src={P301888}
+                                                                data-src={P301888}
+                                                                className='lazy attachment-original size-original'
+                                                                alt=''
+                                                                sizes='(max-width: 1246px) 100vw, 1246px'
+                                                            />
+                                                        </div>
+                                                    {/* </a> */}
+                                                </div>
+                                                <div className='box-text text-center'>
+                                                    <div className='box-text-inner' />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                               </Image.PreviewGroup>
                                 </div>
                             </div>
                         </section>
