@@ -2623,7 +2623,7 @@ function LandingPage() {
                             width: '50px',
                             height: '50px',
                             position: 'absolute',
-                            bottom: '15px',
+                            bottom: '0',
                             height: '50px',
                             borderRadius:'50%',
                             right:0
