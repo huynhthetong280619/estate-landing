@@ -1309,7 +1309,7 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div> */}
-                                    <Image.PreviewGroup>
+                                    <Image.PreviewGroup onClick={(e) => e.preventDefault()}>
                                         <div className='col medium-6 small-6 large-3'>
                                         <div className='col-inner'>
                                             <div className='box has-hover has-hover box-text-bottom'>
