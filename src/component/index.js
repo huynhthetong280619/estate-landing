@@ -66,8 +66,8 @@ import BANGGIACENTURYCITY06144945 from '../images/chinh-sach/06144945-bang-gia-c
 import GIASHOPHOUSECENTURYCITY25214402 from '../images/chinh-sach/25214402-gia-shophouse-century-city.jpg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobeAfrica, faTemperatureLow,faBars } from '@fortawesome/free-solid-svg-icons'
-import { faHome,faChevronRight,faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faGlobeAfrica, faTemperatureLow, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTree } from '@fortawesome/free-solid-svg-icons'
 import { faIndustry } from '@fortawesome/free-solid-svg-icons'
 import { faCommentSlash } from '@fortawesome/free-solid-svg-icons'
@@ -75,9 +75,10 @@ import { faRoad } from '@fortawesome/free-solid-svg-icons'
 import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 import { URL_API } from '../constants/API'
-import { Image } from 'antd';
+import { Image, notification } from 'antd';
+
 function LandingPage() {
-    const [isHidden, setIsHidden] = useState(true)
+    const [isHidden, setIsHidden] = useState(false)
     const [isMenu, setIsmenu] = useState(false)
     const [isItemShow1, setIsItemShow1] = useState(false)
     const [isItemShow2, setIsItemShow2] = useState(false)
@@ -94,7 +95,7 @@ function LandingPage() {
 
         setTimeout(() => {
             openModal()
-        }, 10000)
+        }, 15000)
     }, [])
 
     const [data, setData] = useState({
@@ -112,6 +113,12 @@ function LandingPage() {
         e.preventDefault()
 
         if (!data.fullname || !data.phone || !data.message) {
+            console.log('Toast')
+            notification.warning({
+                placement: 'topRight',
+                message: 'Cảnh báo',
+                description: 'Không thành công.Vui lòng thử lại!'
+            })
             return
         }
 
@@ -127,7 +134,19 @@ function LandingPage() {
             const res = await response.json()
 
             setData({ ...data, fullname: '', phone: '', message: '', date: new Date() })
-        } catch (error) {}
+
+            notification.success({
+                placement: 'topRight',
+                message: 'Thông báo',
+                description: 'Đăng ký thành công!'
+            })
+        } catch (error) {
+            notification.error({
+                placement: 'topRight',
+                message: 'Lỗi',
+                description: 'Hệ thống xảy ra lỗi!Vui lòng thử lại!'
+            })
+        }
     }
 
     const openModal = () => {
@@ -176,7 +195,12 @@ function LandingPage() {
                                         <li className='nav-icon has-icon'>
                                             <div className='header-button'>
                                                 <a
-                                                style={{alignSelf:'center'}}
+                                                    style={{
+                                                        alignSelf: 'center', display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center',
+                                                        borderColor: '#eecc79'
+                                                    }}
                                                     // href='#'
                                                     data-open='#main-menu'
                                                     data-pos='left'
@@ -185,7 +209,7 @@ function LandingPage() {
                                                     className='icon button round is-outline is-small'
                                                     aria-controls='main-menu'
                                                     aria-expanded='false'>
-                                                    <FontAwesomeIcon  icon={faBars} size="40"/>
+                                                    <FontAwesomeIcon icon={faBars} size="40" />
                                                 </a>
                                             </div>
                                         </li>
@@ -1817,30 +1841,30 @@ function LandingPage() {
                                             <div>
                                                 <ul id='accordion'>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
-                                                        <div style={{ display: 'flex',padding:'20px' }}>
-                                                            <div onClick={()=>{
-                                                                 setIsItemShow2(false)
-                                                                 setIsItemShow1(!isItemShow1)
-                                                                 setIsItemShow3(false)
+                                                        <div style={{ display: 'flex', padding: '20px' }}>
+                                                            <div onClick={() => {
+                                                                setIsItemShow2(false)
+                                                                setIsItemShow1(!isItemShow1)
+                                                                setIsItemShow3(false)
                                                             }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow1 ? faChevronRight : faChevronDown} /> </div>
                                                             <div>
-                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
-                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow1 ? 'none':''}} className='content'>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
+                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow1 ? 'none' : '' }} className='content'>
                                                                     <p>Công ty Cổ phần Đầu tư và phát triển Thuận Lợi.</p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </li>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
-                                                        <div style={{ display: 'flex',padding:'20px' }}>
-                                                            <div onClick={()=>{
+                                                        <div style={{ display: 'flex', padding: '20px' }}>
+                                                            <div onClick={() => {
                                                                 setIsItemShow2(!isItemShow2)
                                                                 setIsItemShow1(false)
                                                                 setIsItemShow3(false)
                                                             }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}> <FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow2 ? faChevronRight : faChevronDown} />  </div>
                                                             <div>
-                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
-                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow2 ? 'none':''}} className='content'>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>Chủ đầu tư dự án Century City là ai?</h3>
+                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow2 ? 'none' : '' }} className='content'>
                                                                     <p>
                                                                         {' '}
                                                                         Giá bán đất nền 16 triệu đồng/m2. Giá nhà phố, shophouse, biệt thự vui lòng liên hệ
@@ -1851,17 +1875,17 @@ function LandingPage() {
                                                         </div>
                                                     </li>
                                                     <li className='item itemx' style={{ listStyle: 'none' }}>
-                                                        <div style={{ display: 'flex',padding:'20px' }}>
-                                                            <div onClick={()=>{
-                                                                 setIsItemShow2(false)
-                                                                 setIsItemShow1(false)
-                                                                 setIsItemShow3(!isItemShow3)
+                                                        <div style={{ display: 'flex', padding: '20px' }}>
+                                                            <div onClick={() => {
+                                                                setIsItemShow2(false)
+                                                                setIsItemShow1(false)
+                                                                setIsItemShow3(!isItemShow3)
                                                             }} style={{ borderRight: '1px solid #d6cbcb', paddingRight: '7px' }}><FontAwesomeIcon style={{ transition: 'all 500ms' }} icon={!isItemShow3 ? faChevronRight : faChevronDown} /> </div>
                                                             <div>
-                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px',textAlign:'left' }}>
+                                                                <h3 style={{ color: '#2121ff', paddingLeft: '5px', textAlign: 'left' }}>
                                                                     Pháp lý dự án Century City như thế nào?
                                                                 </h3>
-                                                                <div style={{textAlign:'left',paddingLeft: '5px',display:!isItemShow3 ? 'none':''}} className='content'>
+                                                                <div style={{ textAlign: 'left', paddingLeft: '5px', display: !isItemShow3 ? 'none' : '' }} className='content'>
                                                                     <p>Pháp lý minh bạch, đã có trích lục từng nền, phê duyệt 1/500.</p>
                                                                     <p>Dự kiến quý 3/2021 chuyển nhượng sổ mang tên khách hàng.</p>
                                                                 </div>
@@ -1963,8 +1987,8 @@ function LandingPage() {
                                             </div>
                                             <p />
                                         </div>
-                                        <div className='col medium-12 small-12 large-12 formgiua' style={{textAlign:'center'}}>
-                                            <div className='col-inner'>
+                                        <div className='col medium-12 small-12 large-12 formgiua' style={{ textAlign: 'center' }}>
+                                            <div className='col-inner '>
                                                 <button className='wpcf7-form-control wpcf7-submit' onClick={handleSubmit}>
                                                     Đăng ký
                                                 </button>
@@ -2141,7 +2165,7 @@ function LandingPage() {
                 </div>
             </div>
             <div className='hotline-zalo-ring-wrap'>
-                <a href='https://zalo.me/andiaockimoanh'>
+                <a href='https://zalo.me/andiaockimoanh' target="_blank">
                     <img src={ZALO} alt='Hotline' width='50' style={{ borderRadius: '50%', cursor: 'pointer' }} />
                 </a>
             </div>
@@ -2220,7 +2244,7 @@ function LandingPage() {
                 </div>
             )}
 
-            {/* <div className='md-overlay'></div> */}
+            <div className='md-overlay'></div>
         </body>
     )
 }

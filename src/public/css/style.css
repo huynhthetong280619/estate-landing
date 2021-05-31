@@ -1616,7 +1616,7 @@ strong {
     padding: 8px 0;
 }
 
-.dangkythongtin input.wpcf7-form-control.wpcf7-submit {
+.dangkythongtin button.wpcf7-form-control.wpcf7-submit {
     text-align: center;
     margin: 0 auto;
     display: block;
@@ -3785,7 +3785,7 @@ display: none;
 .popup1{
 opacity:1;
 position: fixed;
-top: 42%;
+top: 50%;
 left: 50%;
 height: 100%;
 width: 100%;

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import LandingPage from './component/index'
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>
