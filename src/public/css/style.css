@@ -4050,3 +4050,7 @@ padding:5px;
 .ant-notification{
     z-index: 999999999999999 !important;
 }
+
+.height-customize{
+    height: 576px;
+}
