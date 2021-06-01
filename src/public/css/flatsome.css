@@ -1363,7 +1363,8 @@ li.has-dropdown:hover>.nav-dropdown-full {
 	-ms-flex-flow: row wrap;
 	flex-flow: row wrap;
 	-ms-flex-align: center;
-	align-items: center
+	align-items: center;
+	justify-content: space-between;
 }
 .nav>li {
 	display: inline-block;
@@ -1408,7 +1409,7 @@ li.has-dropdown:hover>.nav-dropdown-full {
 }
 .nav-left {
 	-ms-flex-pack: start;
-	justify-content: flex-start
+	justify-content: space-between
 }
 .nav-right {
 	-ms-flex-pack: end;

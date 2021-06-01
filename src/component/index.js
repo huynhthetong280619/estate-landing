@@ -90,12 +90,12 @@ function LandingPage() {
 
             if (this.scrollY > 100) {
                 stickDestination.classList.add('stuck')
-                iconRoll.style.display=""
+                iconRoll.style.display = ""
             } else {
                 stickDestination.classList.remove('stuck')
-                iconRoll.style.display="none"
+                iconRoll.style.display = "none"
             }
-            if(this.scrollY > 200){
+            if (this.scrollY > 200) {
 
             }
         })
@@ -119,8 +119,7 @@ function LandingPage() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if (!data.fullname || !data.phone || !data.message) {
-            console.log('Toast')
+        if (!data.fullname || !data.phone) {
             notification.warning({
                 placement: 'topRight',
                 message: 'Cảnh báo',
@@ -224,7 +223,7 @@ function LandingPage() {
                                     </ul>
                                 </div>
                                 <div className='flex-col hide-for-medium flex-left'>
-                                    <ul className='header-nav header-nav-main nav nav-left nav-uppercase'>
+                                    <ul className='header-nav header-nav-main nav nav-left nav-uppercase' style={{ display: 'flex', justifyContent: 'space-between' }}>
                                         <li className='menu-item'>
                                             <a href='#gioithieu' className='nav-top-link'>
                                                 Giới thiệu
@@ -248,7 +247,7 @@ function LandingPage() {
                                     </ul>
                                 </div>
                                 <div className='flex-col hide-for-medium flex-right'>
-                                    <ul className='header-nav header-nav-main nav nav-right nav-uppercase'>
+                                    <ul className='header-nav header-nav-main nav nav-right nav-uppercase' style={{ display: 'flex', justifyContent: 'space-between' }}>
                                         <li className='menu-item'>
                                             <a href='#matbang' className='nav-top-link'>
                                                 Mặt bằng
@@ -833,6 +832,40 @@ function LandingPage() {
                                 </div>
                             </div>
                         </section>
+                        <section className="section duoi-mb pd-ss wh bd1" id="tong-quan-02" hidden="">
+
+                            <div className="section-content relative">
+                                <div className="row row-fluid" id="row-1527641100">
+                                    <div className="col res-w left-0  eds-on-scroll medium-5 small-12 large-5 eds-scroll-visible bounceInUp">
+                                        <div className="col-inner">
+                                            <div className="item-diathe   eds-on-scroll eds-scroll-visible fadeInLeft">
+                                                <h2 className="title  eds-on-scroll  eds-scroll-visible" style={{textAlign: 'center'}}><span>Trung tâm thành phố sân bay</span></h2>
+                                                <p style={{fontSize: '15px', lineHeight: '26px'}}>
+                                                    ➢ Khu đô thị Century City nằm trong quy hoạch thuộc khu quy hoạch hậu cần – logistic của sân bay, kỳ vọng trở thành khu đô thị thương mại – dịch vụ, phục vụ nhu cầu giao thương đa dạng của các doanh nhân trong và ngoài nước.
+                                    </p>
+                                                <p style={{fontSize: '15px', lineHeight: '26px'}}>
+                                                    ➢ Đây là dự án "tiên phong" đón đầu sân bay quốc tế Long Thành, vì vậy khu đô thị Century City còn được tích hợp chuỗi tiện ích nội khu đẳng cấp và hệ thống tiện ích liên kết xứng tầm phục vụ nhu cầu trải nghiệm cuộc sống.
+                                    </p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div className="col res-w  eds-on-scroll medium-7 small-12 large-7 eds-scroll-visible bounceInDown">
+                                        <div className="col-inner">
+                                            <div className="img has-hover x md-x lg-x y md-y lg-y" id="image_1741122167">
+                                                <div className="img-inner image-cover dark" style={{paddingtop:'511px'}}>
+                                                    <img width="1020" height="574" src={TONGQUAN1} className=" attachment-large size-large" alt="" sizes="(max-width: 1020px) 100vw, 1020px" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
                         <span className='scroll-to' data-label='Scroll to: #vitri' data-bullet='false' data-link='#vitri' data-title='VỊ trí'>
                             <a name='vitri' />
                         </span>
@@ -1317,12 +1350,12 @@ function LandingPage() {
                                             </div>
                                         </div>
                                     </div> */}
-                                    <Image.PreviewGroup onClick={(e) => e.preventDefault()}>
+                                    <Image.PreviewGroup>
                                         <div className='col medium-6 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='maunha' data-type='image' href={PHO1}> */}
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='maunha' data-type='image' href={PHO1}> */}
                                                         <div >
                                                             <Image
                                                                 // width={712}
@@ -1330,24 +1363,24 @@ function LandingPage() {
                                                                 src={PHO1}
                                                                 className='attachment-original size-original'
                                                                 alt=''
-                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            // sizes='(max-width: 712px) 100vw, 712px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner'>
-                                                        <p>MẪU NHÀ LIÊN KẾ VƯỜN</p>
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner'>
+                                                            <p>MẪU NHÀ LIÊN KẾ VƯỜN</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-6 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAUNHAVUON}> */}
+                                        <div className='col medium-6 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='maunha' data-type='image' href={MAUNHAVUON}> */}
                                                         <div >
                                                             <Image
                                                                 // width={712}
@@ -1355,24 +1388,24 @@ function LandingPage() {
                                                                 src={MAUNHAVUON}
                                                                 className='attachment-original size-original'
                                                                 alt=''
-                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            // sizes='(max-width: 712px) 100vw, 712px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner'>
-                                                        <p>Mẫu nhà phố liên kế</p>
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner'>
+                                                            <p>Mẫu nhà phố liên kế</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-6 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAUSHOP}> */}
+                                        <div className='col medium-6 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='maunha' data-type='image' href={MAUSHOP}> */}
                                                         <div >
                                                             <Image
                                                                 // width={712}
@@ -1380,24 +1413,24 @@ function LandingPage() {
                                                                 src={MAUSHOP}
                                                                 className='attachment-original size-original'
                                                                 alt=''
-                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            // sizes='(max-width: 712px) 100vw, 712px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner'>
-                                                        <p>Mẫu nhà biệt thự</p>
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner'>
+                                                            <p>Mẫu nhà biệt thự</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-6 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='maunha' data-type='image' href={MAU1}> */}
+                                        <div className='col medium-6 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='maunha' data-type='image' href={MAU1}> */}
                                                         <div >
                                                             <Image
                                                                 // width={712}
@@ -1405,19 +1438,19 @@ function LandingPage() {
                                                                 src={MAU1}
                                                                 className='attachment-original size-original'
                                                                 alt=''
-                                                                // sizes='(max-width: 712px) 100vw, 712px'
+                                                            // sizes='(max-width: 712px) 100vw, 712px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner'>
-                                                        <p>Mẫu Shophouse</p>
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner'>
+                                                            <p>Mẫu Shophouse</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </Image.PreviewGroup>
                                 </div>
                             </div>
@@ -1933,36 +1966,12 @@ function LandingPage() {
                                         </div>
                                     </div>
                                 */}
-                               <Image.PreviewGroup>
-                               <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P968551}> */}
-                                                        <div className>
-                                                            <Image
-                                                                // width={1246}
-                                                                // height={300}
-                                                                src={P968551}
-                                                                data-src={P551418}
-                                                                className='lazy attachment-original size-original'
-                                                                alt=''
-                                                                sizes='(max-width: 1246px) 100vw, 1246px'
-                                                            />
-                                                        </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P968551}> */}
+                                    <Image.PreviewGroup>
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P968551}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -1974,19 +1983,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P742879}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P742879}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -1998,19 +2007,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P435680}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P435680}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2022,19 +2031,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P852814}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P852814}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2046,19 +2055,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P119636}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P119636}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2070,19 +2079,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P938179}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P938179}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2094,19 +2103,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P279648}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P279648}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2118,19 +2127,19 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P793963}> */}
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        {/* <a data-fancybox='hinhanh' data-type='image' href={P793963}> */}
                                                         <div className>
                                                             <Image
                                                                 // width={1246}
@@ -2142,88 +2151,42 @@ function LandingPage() {
                                                                 sizes='(max-width: 1246px) 100vw, 1246px'
                                                             />
                                                         </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P790991}> */}
-                                                        <div className>
-                                                            <Image
-                                                                // width={1246}
-                                                                // height={300}
-                                                                src={P790991}
-                                                                data-src={P790991}
-                                                                className='lazy attachment-original size-original'
-                                                                alt=''
-                                                                sizes='(max-width: 1246px) 100vw, 1246px'
-                                                            />
-                                                        </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+                                                        {/* </a> */}
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P856793}> */}
-                                                        <div className>
-                                                            <Image
-                                                                // width={1246}
-                                                                // height={300}
-                                                                src={P856793}
-                                                                data-src={P856793}
-                                                                className='lazy attachment-original size-original'
-                                                                alt=''
-                                                                sizes='(max-width: 1246px) 100vw, 1246px'
-                                                            />
-                                                        </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='col medium-4 small-6 large-3'>
-                                        <div className='col-inner'>
-                                            <div className='box has-hover has-hover box-text-bottom'>
-                                                <div className='box-image'>
-                                                    {/* <a data-fancybox='hinhanh' data-type='image' href={P301888}> */}
-                                                        <div className>
-                                                            <Image
-                                                                // width={1246}
-                                                                // height={300}
-                                                                src={P301888}
-                                                                data-src={P301888}
-                                                                className='lazy attachment-original size-original'
-                                                                alt=''
-                                                                sizes='(max-width: 1246px) 100vw, 1246px'
-                                                            />
-                                                        </div>
-                                                    {/* </a> */}
-                                                </div>
-                                                <div className='box-text text-center'>
-                                                    <div className='box-text-inner' />
+
+                                        <div className='col medium-4 small-6 large-3'>
+                                            <div className='col-inner'>
+                                                <div className='box has-hover has-hover box-text-bottom'>
+                                                    <div className='box-image'>
+                                                        <a data-fancybox='hinhanh' data-type='image' href={P856793}>
+                                                            <div>
+                                                                <Image
+                                                                    // width={1246}
+                                                                    // height={300}
+                                                                    src={P856793}
+                                                                    data-src={P856793}
+                                                                    className='lazy attachment-original size-original'
+                                                                    alt=''
+                                                                    sizes='(max-width: 1246px) 100vw, 1246px'
+                                                                />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div className='box-text text-center'>
+                                                        <div className='box-text-inner' />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                               
-                               </Image.PreviewGroup>
+
+
+                                    </Image.PreviewGroup>
                                 </div>
                             </div>
                         </section>
@@ -2607,17 +2570,17 @@ function LandingPage() {
             </div>
             <div style={{ width: '100%' }}>
                 <div
-                id="toansida"
+                    id="toansida"
                     className='hotline-zalo-ring-wrap'
                     style={{
                         right: 8,
                         // paddingRight: '5px',
                         // paddingTop: '4px',
-                        display:'none'
+                        display: 'none'
                     }}>
                     <a
-                    id="luoiqua"
-                   href="#top"
+                        id="luoiqua"
+                        href="#top"
                         style={{
                             border: '5px solid #f7e254',
                             width: '50px',
@@ -2625,11 +2588,11 @@ function LandingPage() {
                             position: 'absolute',
                             bottom: '0',
                             height: '50px',
-                            borderRadius:'50%',
-                            right:0
+                            borderRadius: '50%',
+                            right: 0
                         }}>
                         <FontAwesomeIcon
-                            style={{ transition: 'all 500ms', fontWeight: 'bold', fontSize: '40px', textAlign: 'center',paddingLeft:'8px' }}
+                            style={{ transition: 'all 500ms', fontWeight: 'bold', fontSize: '40px', textAlign: 'center', paddingLeft: '8px' }}
                             icon={faChevronUp}
                             color={'#f7e254'}
                         />

@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 ReactDOM.render(
   <React.StrictMode>
     <LandingPage />
-  </React.StrictMode>,
+   </React.StrictMode>,
   document.getElementById('root')
 );
 
