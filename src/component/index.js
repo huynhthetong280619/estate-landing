@@ -83,6 +83,7 @@ function LandingPage() {
     const [isItemShow1, setIsItemShow1] = useState(false)
     const [isItemShow2, setIsItemShow2] = useState(false)
     const [isItemShow3, setIsItemShow3] = useState(false)
+
     useEffect(() => {
         window.addEventListener('scroll', function (event) {
             const stickDestination = document.getElementById('stick-flag-action')
@@ -815,13 +816,13 @@ function LandingPage() {
                                     </div>
                                     <div className='col res-w bounceInDown eds-on-scroll medium-7 small-12 large-7'>
                                         <div className='col-inner'>
-                                            <div className='img has-hover x md-x lg-x y md-y lg-y height-customize' id='image_1741122167'>
+                                            <div className='img has-hover x md-x lg-x y md-y lg-y' id='image_1741122167'>
                                                 <div className='img-inner image-cover dark' style={{ paddingTop: '511px' }}>
                                                     <img
                                                         width={1020}
                                                         height="576"
                                                         src={TONGQUAN1}
-                                                        className='attachment-large size-large height-customize'
+                                                        className='attachment-large size-large'
                                                         alt=''
                                                         sizes='(max-width: 1020px) 100vw, 1020px'
                                                     />
@@ -853,9 +854,9 @@ function LandingPage() {
                                     </div>
                                     <div className="col res-w  eds-on-scroll medium-7 small-12 large-7 eds-scroll-visible bounceInDown">
                                         <div className="col-inner">
-                                            <div className="img has-hover x md-x lg-x y md-y lg-y" id="image_1741122167">
+                                            <div className="img has-hover x md-x lg-x y md-y lg-y height-customize" id="image_1741122167">
                                                 <div className="img-inner image-cover dark" style={{paddingtop:'511px'}}>
-                                                    <img width="1020" height="574" src={TONGQUAN1} className=" attachment-large size-large" alt="" sizes="(max-width: 1020px) 100vw, 1020px" />
+                                                    <img width="1020" height="574" src={TONGQUAN1} className=" attachment-large size-large height-customize" alt="" sizes="(max-width: 1020px) 100vw, 1020px" />
                                                 </div>
 
                                             </div>
